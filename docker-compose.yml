@@ -6,6 +6,9 @@ services:
         build: brat
         ports:
             - 80:8001
+        volumes:
+            - brat-cfg:/opt/brat/configurations
+            - brat-data:/opt/brat/data
         depends_on:
             - "opennlp"
 volumes:
