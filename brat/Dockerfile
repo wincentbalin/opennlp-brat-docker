@@ -15,6 +15,7 @@ RUN echo ${BRAT_USER} > config.txt && \
     echo ${BRAT_ADMIN_EMAIL} >> config.txt && \
     ./install.sh -u < config.txt && \
     rm config.txt && \
-    chown -R nobody data/ work/
+    chown -R nobody data/ work/ && \
+    sed -i '/^# NER/a OpenNLP tool:openNLP, model:openNLP,  <URL>:http://opennlp:8999/ner' tools.conf
 USER nobody
 ENTRYPOINT ["./standalone.py"]
