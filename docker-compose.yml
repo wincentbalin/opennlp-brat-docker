@@ -1,0 +1,13 @@
+version: '2'
+services:
+    opennlp:
+        build: opennlp
+    brat:
+        build: brat
+        ports:
+            - 80:80
+        depends_on:
+            - "opennlp"
+volumes:
+    brat-cfg:
+    brat-data:
