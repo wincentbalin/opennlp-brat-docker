@@ -5,7 +5,7 @@ ENV BRAT_USER "editor"
 ENV BRAT_PASSWORD "annotate"
 ENV BRAT_ADMIN_EMAIL "admin@example.com"
 RUN apt-get update && \
-    apt-get install -y wget iputils-ping python socat
+    apt-get install -y wget python
 RUN wget -q -O - http://weaver.nlplab.org/~brat/releases/brat-${BRAT_VERSION}.tar.gz | \
     tar zxvfC - /opt && \
     mv /opt/brat-${BRAT_VERSION} /opt/brat

@@ -5,7 +5,7 @@ services:
     brat:
         build: brat
         ports:
-            - 80:80
+            - 80:8001
         depends_on:
             - "opennlp"
 volumes:
