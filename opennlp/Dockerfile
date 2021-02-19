@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get install -y default-jre wget socat && \
     wget -q -O - ${OPENNLP_ARCHIVE_URL} | tar zxvfC - /opt && \
     mv /opt/apache-opennlp-${OPENNLP_VERSION} /opt/opennlp
-RUN wget -O ner-model.bin ${OPENNLP_MODEL_URL}
+RUN wget -O ner-model.bin --progress=bar:force ${OPENNLP_MODEL_URL}
 COPY entrypoint.sh .
 RUN chmod 0755 entrypoint.sh
 USER nobody
