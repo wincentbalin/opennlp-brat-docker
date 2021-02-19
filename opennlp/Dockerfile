@@ -10,4 +10,5 @@ RUN apt-get update && \
 COPY en-ner-person.bin ner-model.bin
 COPY entrypoint.sh .
 RUN chmod 0755 entrypoint.sh
+USER nobody
 ENTRYPOINT ["/entrypoint.sh"]
