@@ -16,8 +16,5 @@ RUN echo ${BRAT_USER} > config.txt && \
     ./install.sh -u < config.txt && \
     rm config.txt && \
     chown -R nobody data/ work/
-WORKDIR /
-COPY entrypoint.sh .
-RUN chmod 0755 entrypoint.sh
 USER nobody
-ENTRYPOINT "/entrypoint.sh"
+ENTRYPOINT ["./standalone.py"]
