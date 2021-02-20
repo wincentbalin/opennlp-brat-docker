@@ -1,14 +1,7 @@
 # Docker setup of brat annotator and OpenNLP framework
-[OpenNLP framework](https://opennlp.apache.org/) contains
-the connector to the [brat annotator](http://brat.nlplab.org/).
-This [docker-compose](https://docs.docker.com/compose/) recipe 
-connects the two and enables a quick setup of an OpenNLP+brat
+[OpenNLP framework](https://opennlp.apache.org/) contains the connector to the [brat annotator](http://brat.nlplab.org/).
+This [docker-compose](https://docs.docker.com/compose/) recipe connects the two and enables a quick setup of an OpenNLP+brat
 annotation environment.
-
-# Caveat emptor
-brat reports SVG errors when accessing OpenNLP. Hence, it seems that the interface between OpenNLP and brat is broken.
-The last working version of OpenNLP was probably 1.8.4, like described [here](https://stackoverflow.com/questions/47400478/how-do-i-configure-the-opennlp-brat-annotation-service), but I was unable to start it properly.
-I would appreciate being corrected here.
 
 # Setup
 OpenNLP and brat run in different containers, linked by `docker-compose`. The brat container listens internally on port 8001,
