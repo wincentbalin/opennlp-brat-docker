@@ -4,11 +4,17 @@ ENV OPENNLP_VERSION 1.9.2
 ENV OPENNLP_ARCHIVE_URL https://archive.apache.org/dist/opennlp/opennlp-${OPENNLP_VERSION}/apache-opennlp-${OPENNLP_VERSION}-bin.tar.gz
 #ENV OPENNLP_ARCHIVE_URL https://downloads.apache.org/opennlp/opennlp-${OPENNLP_VERSION}/apache-opennlp-${OPENNLP_VERSION}-bin.tar.gz
 ENV OPENNLP_MODEL_URL http://opennlp.sourceforge.net/models-1.5/en-ner-person.bin
+
+# Install OpenNLP
 RUN apt-get update && \
     apt-get install -y default-jre wget socat && \
     wget -q -O - ${OPENNLP_ARCHIVE_URL} | tar zxvfC - /opt && \
     mv /opt/apache-opennlp-${OPENNLP_VERSION} /opt/opennlp
+
+# Download model
 RUN wget -O ner-model.bin --progress=bar:force ${OPENNLP_MODEL_URL}
+
+# Setup entrypoint
 COPY entrypoint.sh .
 RUN chmod 0755 entrypoint.sh
 USER nobody
